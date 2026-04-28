@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shriyadita Srinivaas | AI & Data Solutions Architect</title>
+    <meta name="description"
+        content="Portfolio of Shriyadita Srinivaas — Clinical AI, ML Engineering, and Data-Driven Solutions. Specializing in LLMs, RAG pipelines, and Pharmacogenomics AI.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Import Map for Three.js ES Modules -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader" class="loader-screen">
+        <div class="loader-content">
+            <h1 class="glitch" data-text="INITIALIZING SYSTEM">INITIALIZING SYSTEM</h1>
+            <div class="progress-bar-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <p id="loading-text">Loading 3D Assets... 0%</p>
+        </div>
+    </div>
+
+    <!-- The 3D Canvas -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- UI Overlay (Fixed to screen) -->
+    <div id="ui-layer" class="ui-layer hidden">
+
+        <!-- Navigation / Map -->
+        <nav class="hud-nav">
+            <div class="logo">SS.AI // CORE</div>
+            <div class="nav-controls">
+                <button class="nav-btn active" data-target="home">01_HOME</button>
+                <button class="nav-btn" data-target="about">02_CAPABILITIES</button>
+                <button class="nav-btn" data-target="projects">03_SYSTEMS</button>
+                <button class="nav-btn" data-target="contact">04_COMM</button>
+            </div>
+            <a href="resume.pdf" target="_blank" class="btn-resume">DOWNLOAD_RESUME</a>
+        </nav>
+
+        <!-- Dynamic Content Panels -->
+        <div class="content-container">
+
+            <!-- Home Panel -->
+            <div id="panel-home" class="panel active">
+                <h1 class="title">SHRIYADITA SRINIVAAS</h1>
+                <h2 class="subtitle">AI & Data Solutions Architect</h2>
+                <p class="description">
+                    ML Engineer specializing in Clinical AI, LLM systems, and data-driven healthcare solutions.
+                    B.E. CS (AI &amp; ML) · Bengaluru, India. Navigate the system to explore.
+                </p>
+                <button class="action-btn" data-target="about">INITIATE EXPLORATION</button>
+            </div>
+
+            <!-- About Panel -->
+            <div id="panel-about" class="panel hidden">
+                <div class="panel-header">
+                    <span class="badge">SYSTEM.CAPABILITIES</span>
+                    <h2 class="title-sm">Technical Architecture</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-box">
+                        <h3>Machine Learning</h3>
+                        <p>Predictive models, LLM integration (AWS Bedrock), RAG pipelines, fairness auditing, SHAP
+                            explainability.</p>
+                    </div>
+                    <div class="skill-box">
+                        <h3>Data Engineering</h3>
+                        <p>Scalable ETL pipelines, AWS (Lambda, S3, Redshift, Snowflake), FastAPI, React + Django
+                            full-stack.</p>
+                    </div>
+                    <div class="skill-box">
+                        <h3>Clinical AI</h3>
+                        <p>Pharmacogenomics, Adverse Drug Reaction (ADR) prediction, genomic risk scoring, healthcare
+                            platform development at Indegene.</p>
+                    </div>
+                    <div class="skill-box">
+                        <h3>Achievements</h3>
+                        <p>#1 in Bangalore · Amazon ML Challenge 2024. SAP India Hackathon 2024 Finalist. IEEE research
+                            publications.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Panel -->
+            <div id="panel-projects" class="panel hidden">
+                <div class="panel-header">
+                    <span class="badge">DEPLOYED.SYSTEMS</span>
+                    <h2 class="title-sm">Featured Architectures</h2>
+                </div>
+
+                <div class="project-carousel">
+                    <div class="project-card">
+                        <img src="assets/pharmaco_safe.png" alt="PharmacoSafe">
+                        <div class="project-info">
+                            <h3>PharmacoSafe</h3>
+                            <p>Pharmacogenomics-driven ADR prediction pipeline. 8 pharmacogenes × 15 drugs. FastAPI
+                                full-stack with fairness auditing.</p>
+                            <a href="https://github.com/ShriyaditaSrinivaas/PharmacoSafe" target="_blank"
+                                class="btn-link">View Repo ↗</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="assets/genomic_guard.png" alt="GenomicGuard">
+                        <div class="project-info">
+                            <h3>GenomicGuard</h3>
+                            <p>End-to-end clinical ML system for disease risk prediction. Ensemble AUC 0.945. SHAP
+                                explainability + Streamlit dashboard.</p>
+                            <a href="https://github.com/ShriyaditaSrinivaas/GenomicGuard" target="_blank"
+                                class="btn-link">View Repo ↗</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="assets/launchsense_ai.png" alt="LaunchSense AI">
+                        <div class="project-info">
+                            <h3>LaunchSense AI</h3>
+                            <p>AI market intelligence platform. Real-time data ingestion, NLP sentiment analysis,
+                                product strategy automation via FastAPI.</p>
+                            <a href="https://github.com/ShriyaditaSrinivaas/LaunchSense-AI" target="_blank"
+                                class="btn-link">View Repo ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Panel -->
+            <div id="panel-contact" class="panel hidden">
+                <div class="panel-header">
+                    <span class="badge">ESTABLISH.CONNECTION</span>
+                    <h2 class="title-sm">Communication Array</h2>
+                </div>
+                <p class="description">
+                    Currently seeking opportunities in AI/ML Engineering, Clinical AI, and Data Strategy. Open to
+                    full-time roles and consulting.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:shriyaditasrinivaas10@gmail.com" class="action-btn">TRANSMIT MESSAGE</a>
+                    <a href="https://linkedin.com/in/shriyadita-srinivaas" target="_blank"
+                        class="action-btn outline">LINKEDIN</a>
+                    <a href="https://github.com/ShriyaditaSrinivaas" target="_blank"
+                        class="action-btn outline">GITHUB</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Controls Hint -->
+        <div class="controls-hint">
+            <span>DRAG TO ROTATE CAMERA</span>
+            <span>//</span>
+            <span>USE MENU TO NAVIGATE</span>
+        </div>
+    </div>
+
+    <!-- Main Module Script -->
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
